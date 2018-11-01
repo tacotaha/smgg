@@ -21,7 +21,7 @@ media_t media_type(const char* file_name){
 }
 
 int gen_thumbs(const char* dir){
-    int count = 0;
+    int count = 0, status = 0;
     char buffer[1024];
     struct dirent* dp;
     MagickWand *wand = NULL; 
@@ -36,9 +36,14 @@ int gen_thumbs(const char* dir){
     MagickWandGenesis(); 
     wand = NewMagickWand();
 
-    while((dp = readdir(dfd)))
-        if(media_type(dp->d_name) == IMAGE){
-            MagickResizeImage(wand, WIDTH, HEIGHT, LanczosFilter);
+    while((dp = readdir(dfd))){
+            sprintf(buffer, "%s/%s", dir,dp->d_name);
+        	status = MagickReadImage(wand, buffer);
+            if(!status)
+                printf("Failed to read: %s\n", dp->d_name);
+            status = MagickResizeImage(wand, WIDTH, HEIGHT, LanczosFilter);
+            if(!status) 
+                printf("Failed to resize: %s\n", buffer);
             sprintf(buffer, "thumbs/%s", dp->d_name);
             MagickWriteImage(wand, buffer); 
             ++count;

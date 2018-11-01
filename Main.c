@@ -25,16 +25,17 @@ int main(int argc, char* argv[]){
     printf("</head>\n");
     printf("<body>\n");
 
+    gen_thumbs(dir);
+return 0;
     while((dp = readdir(dfd)))
         if(media_type(dp->d_name) == IMAGE){
             printf("<div style=\"float: left\">\n");
             printf("<a target=\"_blank\" href=\"%s\">\n", dp->d_name);
-            printf("<img src=\"%s\" alt=\"%s\" width=\"%d\" height=\"%d\">\n", dp->d_name, dp->d_name, WIDTH, HEIGHT);
+            printf("<img src=\"thumbs/%s\" alt=\"%s\" width=\"%d\" height=\"%d\">\n", dp->d_name, dp->d_name, WIDTH, HEIGHT);
             printf("</a>\n");
             printf("</div>\n"); 
         }
-    
-    
+       
     printf("</body>\n");
     printf("</html>\n");
     return 0;
