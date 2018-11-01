@@ -40,15 +40,3 @@ int main(int argc, char* argv[]){
     printf("</html>\n");
     return 0;
 }
-
-int is_image(const char* file_name){
-    char *ext, *image_exts[] = {"jpg", "jpeg", "png", "gif", "tif"};
-    ext = strchr(file_name, '.');
-    if(!ext || ext == file_name) return 0;
-    ++ext;
-    for(int i = 0; i < strlen(ext); ++i)
-        ext[i] += (ext[i] < 0x5A && ext[i] > 0x40) ? 0x20 : 0;
-    for(int i = 0; i <  sizeof(image_exts)/sizeof(image_exts[0]); ++i)
-        if(!strcmp(image_exts[i], ext)) return 1;
-    return 0;
-}
