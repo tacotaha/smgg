@@ -6,6 +6,7 @@
 
 typedef enum media_t{UNKOWN, IMAGE, VIDEO} media_t;
 
-int is_image(const char* file_name);
+media_t media_type(const char* file_name);
+int gen_thumbs(const char* dir_name);
 
 #endif /* MEDIAGEN_H */
