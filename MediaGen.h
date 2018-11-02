@@ -4,8 +4,9 @@
 #include <ftw.h>
 #include <unistd.h>
 
-#define HEIGHT 180 
-#define WIDTH 180 
+// Change in style.css as well
+#define HEIGHT 300 
+#define WIDTH 300 
 
 typedef enum media_t{UNKOWN, IMAGE, VIDEO} media_t;
 

@@ -25,18 +25,29 @@ int main(int argc, char* argv[]) {
 
   gen_thumbs(dir);
 
-  while ((dp = readdir(dfd)))
-    if (media_type(dp->d_name) == IMAGE) {
-      printf("<div class=\"responsive\">\n");
-      printf("<div class=\"gallery\">\n");
-      printf("<a target=\"_blank\" href=\"%s/%s\">\n", dir, dp->d_name);
-      printf("<img src=\"thumbs/%s\" alt=\"%s\" width=\"%d\" height=\"%d\">\n",
-             dp->d_name, dp->d_name, WIDTH, HEIGHT);
-      printf("</a>\n");
-      printf("</div>\n");
-      printf("</div>\n");
-    }
+  while ((dp = readdir(dfd))) {
+    switch (media_type(dp->d_name)) {
+      case UNKOWN:
+        continue; 
+      default:
+        printf("<div class=\"responsive\">\n");
+        printf("<div class=\"gallery\">\n");
+        printf("<a target=\"_blank\" href=\"%s/%s\">\n", dir, dp->d_name);
+      case IMAGE:
+        printf("<img src=\"thumbs/%s\" alt=\"%s\" width=\"%d\" height=\"%d\">\n",
+                dp->d_name, dp->d_name, WIDTH, HEIGHT);
+        break;
+      case VIDEO:
+        printf("<video width=\"%d\" height=\"%d\" controls>\n", WIDTH, HEIGHT);
+        printf("<source src=\"%s/%s\" type=\"video/mp4\">", dir, dp->d_name);
+        printf("</video>");
 
+        break;
+    }
+    printf("</a>\n");
+    printf("</div>\n");
+    printf("</div>\n");
+  }
   printf("</body>\n");
   printf("</html>\n");
   return 0;
