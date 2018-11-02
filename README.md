@@ -6,3 +6,5 @@ This code takes a directory of images/videos, generates their thumbnails and out
 
 # Dependencies
 libimagemagick ([https://imagemagick.org](https://imagemagick.org)) for generating thumbnails 
+
+![](screenshot.jpg)
