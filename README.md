@@ -3,7 +3,7 @@
 
 # Description
 - This code takes a directory of images/videos, generates thumbnails, and outputs an image gallery in HTML format to stdout
-- Currently suuported media file types: {"jpeg", "png", "gif", "tif", "mp4", "avi", "mov", "mkv"} (See configuration section for adding more file types)
+- Currently supported media file types: {"jpeg", "png", "gif", "tif", "mp4", "avi", "mov", "mkv"} (See configuration section for adding more file types)
 
 # Dependencies
 libimagemagick ([https://imagemagick.org](https://imagemagick.org)) for generating thumbnails 
@@ -17,8 +17,8 @@ libimagemagick ([https://imagemagick.org](https://imagemagick.org)) for generati
 - Note: If no path is specified, smgg will look in the current directory for media.
 
 # Configuration
-- smgg comes with some sane defaults, however the layout can be customized by editing `style.css`. Furthermore, the size of the generated thumbnails can be configured by modifying the `HEIGHT` and `WIDTH` macros in `Gallery.h`.
-- To add support for additional media types simply append the corresponding image or video file extension to the `image_exts` or `video_exts` array in `Gallery.h` respectively
+- smgg comes with some sane defaults, however the layout can be customized by editing `style.css`. Furthermore, the size of the generated thumbnails can be configured by modifying the `HEIGHT` and `WIDTH` macros in `smgg.h`.
+- To add support for additional media types simply append the corresponding image or video file extension to the `IMAGE_EXTS` or `VIDEO_EXTS` macro in `smgg.h` respectively
 
 # Screenshot
 ![](screenshot.jpg)

@@ -1,18 +1,18 @@
 CC=gcc
 CFLAGS=-Wall -pedantic
-OBJ=main.o mediagen.o mediagen
+OBJ=main.o mediagen.o smgg 
 LFLAGS=`MagickWand-config --cflags --ldflags --libs`
 
-all: mediagen 
+all: smgg 
 
-mediagen: mediagen.o main.o
-	$(CC) $(CFLAGS) mediagen.o main.o -o mediagen $(LFLAGS)
+smgg: smgg.o main.o
+	$(CC) $(CFLAGS) smgg.o main.o -o smgg $(LFLAGS)
 
-main.o: Main.c
-	$(CC) $(CFLAGS) -c Main.c -o main.o $(LFAGS)
+main.o: main.c
+	$(CC) $(CFLAGS) -c main.c -o main.o $(LFAGS)
 
-mediagen.o: MediaGen.h MediaGen.c
-	$(CC) $(CFLAGS) -c MediaGen.c -o mediagen.o $(LFLAGS)
+smgg.o: smgg.h smgg.c
+	$(CC) $(CFLAGS) -c smgg.c -o smgg.o $(LFLAGS)
 
 clean:
 	rm -f $(OBJ) *~
