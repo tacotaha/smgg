@@ -5,4 +5,4 @@
 This code takes a directory of images/videos, generates their thumbnails and outputs an image gallery in HTML format to stdout
 
 # Dependencies
-libimagemagick: [https://imagemagick.org](https://imagemagick.org) for manipulating images
+libimagemagick ([https://imagemagick.org](https://imagemagick.org)) for generating thumbnails 

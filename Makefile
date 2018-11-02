@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Werror -pedantic
+CFLAGS=-Wall -pedantic
 OBJ=main.o mediagen.o mediagen
 LFLAGS=`MagickWand-config --cflags --ldflags --libs`
 
