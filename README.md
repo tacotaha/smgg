@@ -1,5 +1,8 @@
-# simple-media-gen
-A fast and simple media gallery generator written in C
+# Simple Media Gallery Generator 
+> A fast and simple media gallery generator written in C
+
+# Description
+This code takes a directory of images/videos, generates their thumbnails and outputs an image gallery in HTML format to stdout
 
 # Dependencies
-ImageMagick (>= 7): (https://imagemagick.org)[https://imagemagick.org]
+libimagemagick: [https://imagemagick.org](https://imagemagick.org) for manipulating images
