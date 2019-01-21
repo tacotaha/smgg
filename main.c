@@ -34,14 +34,12 @@ int main(int argc, char* argv[]) {
         printf("<div class=\"gallery\">\n");
         printf("<a target=\"_blank\" href=\"%s/%s\">\n", dir, dp->d_name);
       case IMAGE:
-        printf("<img src=\"thumbs/%s\" alt=\"%s\" width=\"%d\" height=\"%d\">\n",
-                dp->d_name, dp->d_name, WIDTH, HEIGHT);
+        printf("<img src=\"thumbs/%s\" alt=\"%s\" width=\"%d\" height=\"%d\">\n", dp->d_name, dp->d_name, WIDTH, HEIGHT);
         break;
       case VIDEO:
         printf("<video width=\"%d\" height=\"%d\" controls>\n", WIDTH, HEIGHT);
         printf("<source src=\"%s/%s\" type=\"video/mp4\">", dir, dp->d_name);
         printf("</video>");
-
         break;
     }
     printf("</a>\n");
