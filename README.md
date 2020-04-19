@@ -9,7 +9,7 @@
 libimagemagick ([https://imagemagick.org](https://imagemagick.org)) for generating thumbnails 
 
 # Build
-`$ git clone https://github.com/tazzaoui/smgg.git && cd smgg && Make`
+`$ git clone https://github.com/tacotaha/smgg.git && cd smgg && Make`
 
 # Usage 
 `./smgg <path-to-media>`
